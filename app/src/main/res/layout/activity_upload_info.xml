@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.exemple.furlan.imagephoto.UploadInfoActivity">
+    <Button
+        android:onClick="photoPickerFunction"
+        android:id="@+id/btnFoto"
+        android:text="Selecionar Foto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/txt_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Insira um título para Photo"/>
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/imgSelected"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+    <Button
+        android:onClick="sendPhotoFunction"
+        android:id="@+id/btnEnviar"
+        android:text="Enviar Foto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ProgressBar
+        android:id="@+id/progressUpdate"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+</LinearLayout>
