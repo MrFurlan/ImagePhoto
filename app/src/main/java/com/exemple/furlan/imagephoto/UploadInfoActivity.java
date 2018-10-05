@@ -86,7 +86,10 @@ public class UploadInfoActivity extends Activity {
 
             Uri file = Uri.fromFile(new File(photos.get(0)));
 
-           StorageReference photoRef = mStorageRef.child("images/"+System.currentTimeMillis());
+            String nameArq[] = file.toString().split("/");
+            final String nomeFile = nameArq[nameArq.length - 1].replace(".", "").replace("jpg","");
+
+            StorageReference photoRef = mStorageRef.child("images/"+nomeFile);
 
             photoRef.putFile(file)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -95,7 +98,7 @@ public class UploadInfoActivity extends Activity {
 
                     Photo photo = new Photo(taskSnapshot.getDownloadUrl().toString(), txtTitle.getText().toString());
 
-                    mDatabaseRef.child("photos").child(String.valueOf(System.currentTimeMillis())).setValue(photo).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    mDatabaseRef.child("photos").child(String.valueOf(nomeFile)).setValue(photo).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             progressUpdate.setVisibility(ProgressBar.GONE);
